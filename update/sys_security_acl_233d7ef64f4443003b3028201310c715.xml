@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_security_acl">
+    <sys_security_acl action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <admin_overrides>true</admin_overrides>
+        <advanced>false</advanced>
+        <condition/>
+        <description>Default access control on x_pisn_fd_decorator</description>
+        <name>x_pisn_fd_decorator</name>
+        <operation display_value="delete">delete</operation>
+        <script/>
+        <sys_class_name>sys_security_acl</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2017-07-23 05:03:56</sys_created_on>
+        <sys_id>233d7ef64f4443003b3028201310c715</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_pisn_fd_decorator</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sys_security_acl_233d7ef64f4443003b3028201310c715</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2017-07-23 05:03:56</sys_updated_on>
+        <type display_value="record">record</type>
+    </sys_security_acl>
+</record_update>

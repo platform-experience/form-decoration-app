@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_ui_section caption="" section_id="66af7d114f418700ab4450af0310c77a" sys_domain="global" table="x_pisn_fd_directive" version="3" view="sys_popup">
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>name</element>
+            <position>0</position>
+            <sys_created_by>dylan.lindgren@snc</sys_created_by>
+            <sys_created_on>2017-09-06 01:46:49</sys_created_on>
+            <sys_id>e2af7d114f418700ab4450af0310c77b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_pisn_fd_directive" sys_domain="global" view="c7402b100a0a0b8400cf971d83ee4384">66af7d114f418700ab4450af0310c77a</sys_ui_section>
+            <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+            <sys_updated_on>2017-09-06 01:46:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_element action="INSERT_OR_UPDATE">
+            <element>description</element>
+            <position>1</position>
+            <sys_created_by>dylan.lindgren@snc</sys_created_by>
+            <sys_created_on>2017-09-06 01:46:49</sys_created_on>
+            <sys_id>aaaf7d114f418700ab4450af0310c77b</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_ui_formatter/>
+            <sys_ui_section caption="NULL" display_value="" name="x_pisn_fd_directive" sys_domain="global" view="c7402b100a0a0b8400cf971d83ee4384">66af7d114f418700ab4450af0310c77a</sys_ui_section>
+            <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+            <sys_updated_on>2017-09-06 01:46:49</sys_updated_on>
+            <sys_user/>
+            <type/>
+        </sys_ui_element>
+        <sys_ui_section action="INSERT_OR_UPDATE">
+            <caption/>
+            <header>false</header>
+            <name>x_pisn_fd_directive</name>
+            <roles/>
+            <sys_class_name>sys_ui_section</sys_class_name>
+            <sys_created_by>dylan.lindgren@snc</sys_created_by>
+            <sys_created_on>2017-09-06 01:46:49</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>66af7d114f418700ab4450af0310c77a</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_pisn_fd_directive</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+            <sys_update_name>sys_ui_section_66af7d114f418700ab4450af0310c77a</sys_update_name>
+            <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+            <sys_updated_on>2017-09-06 01:46:49</sys_updated_on>
+            <sys_user/>
+            <title>false</title>
+            <view display_value="Sys_popup" name="sys_popup">c7402b100a0a0b8400cf971d83ee4384</view>
+            <view_name/>
+        </sys_ui_section>
+    </sys_ui_section>
+</record_update>

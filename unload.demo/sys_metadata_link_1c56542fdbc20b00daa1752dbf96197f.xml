@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload.demo</directory>
+        <documentkey>a14312ba4f024b00ab4450af0310c744</documentkey>
+        <payload><![CDATA[<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="x_pisn_fd_decorator">
+    <x_pisn_fd_decorator action="INSERT_OR_UPDATE">
+        <applies_to>field_var_type</applies_to>
+        <directive display_value="fdExamplePhoneField">53e9d44b4f424b0022f40ccf0310c74f</directive>
+        <field/>
+        <field_type display_value="Phone Number">4fea0202c611228e01ff351048e59ee1</field_type>
+        <portal/>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-10-30 12:06:10</sys_created_on>
+        <sys_id>a14312ba4f024b00ab4450af0310c744</sys_id>
+        <sys_mod_count>1</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-10-30 21:54:53</sys_updated_on>
+        <variable/>
+    </x_pisn_fd_decorator>
+</record_update>
+]]></payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-11-01 10:55:39</sys_created_on>
+        <sys_id>1c56542fdbc20b00daa1752dbf96197f</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>fdExamplePhoneField</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sys_metadata_link_1c56542fdbc20b00daa1752dbf96197f</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-01 10:55:39</sys_updated_on>
+        <tablename>x_pisn_fd_decorator</tablename>
+    </sys_metadata_link>
+</record_update>

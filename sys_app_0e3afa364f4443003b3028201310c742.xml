@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_app">
+    <sys_app action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <enforce_license>log</enforce_license>
+        <js_level>helsinki_es5</js_level>
+        <licensable>true</licensable>
+        <license_model>none</license_model>
+        <logo/>
+        <menu display_value="Service Portal">1c00c11047322100ba13a5554ee490f2</menu>
+        <name>Form (Decorated)</name>
+        <private>false</private>
+        <restrict_table_access>false</restrict_table_access>
+        <runtime_access_tracking/>
+        <scope>x_pisn_fd</scope>
+        <scoped_administration>false</scoped_administration>
+        <short_description>Style and customise the display of forms in Service Portal</short_description>
+        <source>x_pisn_fd</source>
+        <store_correlation_id>REPOAPP0000001350</store_correlation_id>
+        <store_url/>
+        <sys_class_name>sys_app</sys_class_name>
+        <sys_code/>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2017-07-23 04:50:44</sys_created_on>
+        <sys_id>0e3afa364f4443003b3028201310c742</sys_id>
+        <sys_mod_count>14</sys_mod_count>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-01 22:45:36</sys_updated_on>
+        <template/>
+        <trackable>true</trackable>
+        <user_role display_value="x_pisn_fd.user" name="x_pisn_fd.user">e27442154f418700ab4450af0310c7a8</user_role>
+        <vendor/>
+        <vendor_prefix/>
+        <version>1.0.0</version>
+    </sys_app>
+</record_update>

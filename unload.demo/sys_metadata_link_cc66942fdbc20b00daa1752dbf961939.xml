@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload.demo</directory>
+        <documentkey>f2035e7a4f024b00ab4450af0310c7f0</documentkey>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;record_update table="x_pisn_fd_directive"&gt;
+    &lt;x_pisn_fd_directive action="INSERT_OR_UPDATE"&gt;
+        &lt;controller&gt;&lt;![CDATA[function fdExampleRefFieldCtrl ($scope, $http, $element, $timeout) {
+	
+	$scope.focused = false;
+	$scope.searchString = $scope.field.displayValue;
+	
+	var focusEvent,
+		blurEvent,
+		clickRegistered = false,
+		blurRegistered = false;
+	
+	function blurFunc () {
+		if (blurRegistered) {
+			//$element.children().off(blurFunc);
+		}
+		
+		$element.find('.fd-ex-ref-field').click(clickFunc);
+		$scope.focused = false;
+		clickRegistered = true;
+		blurRegistered = false;
+	}
+	
+	$timeout(function () {
+		$element.find('.fd-ex-ref-field').click(clickFunc);
+		clickRegistered = true;
+	}, 0);
+	
+	function clickFunc () {
+		$scope.focused = true;
+		$timeout(function () {
+			$element.find('.fd-ex-ref-search').select();
+		}, 0);
+		if (clickRegistered) {
+			//$element.find('.fd-ex-ref-field').off(clickFunc);
+		}
+		$element.children().blur(blurFunc);
+		$scope.search($scope.searchString);
+		clickRegistered = false;
+		blurRegistered = true;
+	}
+	
+	$scope.select = function (newVal) {
+		$scope.field.stagedValue = $scope.field.value = newVal.sys_id;
+		$scope.field.displayValue = $scope.searchString = newVal.name;
+		blurFunc();
+	};
+	
+	$scope.search = function (keyword) {
+		
+		var searchField = $scope.field.ed.searchField;
+		
+		$http({
+			method: 'POST',
+			url: '/angular.do?sysparm_type=sp_ref_list_data',
+			data: {
+				"start": 0,
+				"sysparm_target_table": $scope.formModel.table,
+				"sysparm_target_field": $scope.field.name,
+				"table": $scope.field.refTable,
+				"dependent_field": $scope.field.ed.dependent_field,
+				"dependent_table": $scope.field.ed.dependent_table,
+				"dependent_value": $scope.field.ed.dependent_value,
+				"p": $scope.field.refTable + ";q:" + searchField + $scope.field.ed.defaultOperator + keyword + "^" + searchField + "ISNOTEMPTY^EQ;r:undefined"
+			}
+		}).then(function (result) {
+			$scope.results = result.data;
+		});
+	};
+	
+	
+}]]&gt;&lt;/controller&gt;
+        &lt;css&gt;.fd-ex-ref {&amp;#13;
+  margin-bottom: 15px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-ref-select {&amp;#13;
+  position: relative;&amp;#13;
+  box-sizing: border-box;&amp;#13;
+  border: 4px solid #C4D0D6;&amp;#13;
+  border-radius: 4px;&amp;#13;
+  background-color: #F9FDFF;&amp;#13;
+  padding: 5px 15px;&amp;#13;
+  width: 100%;&amp;#13;
+  cursor: pointer;&amp;#13;
+  min-height: 38px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-ref-field {&amp;#13;
+  display: block;&amp;#13;
+  min-height: 30px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+.fd-ex-ref-field, .fd-ex-ref-search {&amp;#13;
+  position: absolute;&amp;#13;
+  top: 0;&amp;#13;
+  left: 0;&amp;#13;
+  width: 100%;&amp;#13;
+  border: 0;&amp;#13;
+  padding: 5px 50px 5px 15px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-ref-search {&amp;#13;
+  background-color: transparent;&amp;#13;
+  display: none;&amp;#13;
+}&amp;#13;
+&amp;#13;
+input[type="search"]::-webkit-search-cancel-button {&amp;#13;
+  /*Bootstrap 3 override*/&amp;#13;
+  -webkit-appearance: searchfield-cancel-button;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+.fd-ex-ref-results {&amp;#13;
+  display: none;&amp;#13;
+  width: 100%;&amp;#13;
+  position: absolute;&amp;#13;
+  background-color: white;&amp;#13;
+  border: 1px solid #ccc;&amp;#13;
+  z-index: 100;&amp;#13;
+  min-height: 100px;&amp;#13;
+  max-height: 300px;&amp;#13;
+  overflow-y: scroll;&amp;#13;
+  left: 0;&amp;#13;
+  top: 32px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-ref-selected .fd-ex-ref-results, .fd-ex-ref-selected .fd-ex-ref-search {&amp;#13;
+  display: block;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-ref-selected .fd-ex-ref-field {&amp;#13;
+  display: none;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-ref-result {&amp;#13;
+  padding: 5px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-icon {&amp;#13;
+  position: absolute;&amp;#13;
+  font-size: 25px;&amp;#13;
+  right: 10px;&amp;#13;
+  top: 26px;&amp;#13;
+  opacity: 0.5;&amp;#13;
+  color: magenta;&amp;#13;
+}&lt;/css&gt;
+        &lt;css_scoped&gt;.df_fdExampleRefField .fd-ex-ref {&amp;#13;
+  margin-bottom: 15px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleRefField .fd-ex-ref-select {&amp;#13;
+  position: relative;&amp;#13;
+  box-sizing: border-box;&amp;#13;
+  border: 4px solid #C4D0D6;&amp;#13;
+  border-radius: 4px;&amp;#13;
+  background-color: #F9FDFF;&amp;#13;
+  padding: 5px 15px;&amp;#13;
+  width: 100%;&amp;#13;
+  cursor: pointer;&amp;#13;
+  min-height: 38px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleRefField .fd-ex-ref-field {&amp;#13;
+  display: block;&amp;#13;
+  min-height: 30px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+.df_fdExampleRefField .fd-ex-ref-field,.df_fdExampleRefField  .fd-ex-ref-search {&amp;#13;
+  position: absolute;&amp;#13;
+  top: 0;&amp;#13;
+  left: 0;&amp;#13;
+  width: 100%;&amp;#13;
+  border: 0;&amp;#13;
+  padding: 5px 50px 5px 15px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleRefField .fd-ex-ref-search {&amp;#13;
+  background-color: transparent;&amp;#13;
+  display: none;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleRefField input[type="search"]::-webkit-search-cancel-button {&amp;#13;
+  /*Bootstrap 3 override*/&amp;#13;
+  -webkit-appearance: searchfield-cancel-button;&amp;#13;
+}&amp;#13;
+&amp;#13;
+&amp;#13;
+.df_fdExampleRefField .fd-ex-ref-results {&amp;#13;
+  display: none;&amp;#13;
+  width: 100%;&amp;#13;
+  position: absolute;&amp;#13;
+  background-color: white;&amp;#13;
+  border: 1px solid #ccc;&amp;#13;
+  z-index: 100;&amp;#13;
+  min-height: 100px;&amp;#13;
+  max-height: 300px;&amp;#13;
+  overflow-y: scroll;&amp;#13;
+  left: 0;&amp;#13;
+  top: 32px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleRefField .fd-ex-ref-selected .fd-ex-ref-results,.df_fdExampleRefField  .fd-ex-ref-selected .fd-ex-ref-search {&amp;#13;
+  display: block;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleRefField .fd-ex-ref-selected .fd-ex-ref-field {&amp;#13;
+  display: none;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleRefField .fd-ex-ref-result {&amp;#13;
+  padding: 5px;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleRefField .fd-ex-icon {&amp;#13;
+  position: absolute;&amp;#13;
+  font-size: 25px;&amp;#13;
+  right: 10px;&amp;#13;
+  top: 26px;&amp;#13;
+  opacity: 0.5;&amp;#13;
+  color: magenta;&amp;#13;
+}&lt;/css_scoped&gt;
+        &lt;description/&gt;
+        &lt;link&gt;&lt;![CDATA[function fdExampleRefFieldLink (scope, elem, attrs, ctrl) {
+	
+}]]&gt;&lt;/link&gt;
+        &lt;name&gt;fdExampleRefField&lt;/name&gt;
+        &lt;screenshot/&gt;
+        &lt;snake_case&gt;fd_example_ref_field&lt;/snake_case&gt;
+        &lt;spinal_case&gt;fd-example-ref-field&lt;/spinal_case&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2017-10-30 12:05:09&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;f2035e7a4f024b00ab4450af0310c7f0&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;181&lt;/sys_mod_count&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2017-10-31 05:40:46&lt;/sys_updated_on&gt;
+        &lt;template&gt;&lt;![CDATA[&lt;div class="fd-ex-ref"
+     ng-class="{'fd-ex-mandatory': field.mandatory}"
+     ng-show="field.visible"&gt;
+  &lt;label class="fd-ex-label"
+         for="{{::field.name}}"&gt;{{::field.label}}&lt;/label&gt;
+  &lt;div class="fd-ex-ref-select" ng-class="{'fd-ex-ref-selected': focused}"&gt;
+    &lt;div class="fd-ex-ref-field"&gt;{{field.displayValue}}&lt;/div&gt;
+    &lt;input class="fd-ex-ref-search"
+           type="search"
+           ng-model="searchString"
+           ng-change="search(searchString)"/&gt;
+    &lt;div class="fd-ex-ref-results"&gt;
+      &lt;div class="fd-ex-ref-result"
+           ng-repeat="result in results.items"
+           ng-click="select(result)"&gt;{{result.name}}&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="fd-ex-icon"&gt;
+    &lt;i class="fa fa-database" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;
+    &lt;/x_pisn_fd_directive&gt;
+&lt;/record_update&gt;
+</payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-11-01 10:55:54</sys_created_on>
+        <sys_id>cc66942fdbc20b00daa1752dbf961939</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>fdExampleRefField</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sys_metadata_link_cc66942fdbc20b00daa1752dbf961939</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-01 10:55:54</sys_updated_on>
+        <tablename>x_pisn_fd_directive</tablename>
+    </sys_metadata_link>
+</record_update>

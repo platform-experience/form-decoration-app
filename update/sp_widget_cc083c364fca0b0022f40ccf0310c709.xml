@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category/>
+        <client_script><![CDATA[function fdActionsExampleCtrl(fdManager, $scope) {
+  /* widget controller */
+  var c = this;
+	
+	var form_id;
+	
+	$scope.$on('fd.newForm', function (ev, data){
+		form_id = data.id;
+		c.actions = fdManager.getActions(form_id);
+	});
+	
+	c.triggerAction = function (action) {
+		fdManager.triggerAction(form_id, action);
+	};
+	
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>.fd-actions-example {
+  
+   button {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+     width: 100%;
+    }
+  
+  .btn-group-vertical {
+    width: 100%;
+  }
+  
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>pi-fd-actions-example</id>
+        <internal>false</internal>
+        <link/>
+        <name>FD UI Actions example</name>
+        <option_schema/>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function() {
+  /* populate the 'data' object */
+  /* e.g., data.table = $sp.getValue('table'); */
+	
+	data.opts = {
+		show_actions: false,
+		show_headings: true
+	}
+
+})();]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-10-30 05:27:23</sys_created_on>
+        <sys_id>cc083c364fca0b0022f40ccf0310c709</sys_id>
+        <sys_mod_count>88</sys_mod_count>
+        <sys_name>FD UI Actions example</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sp_widget_cc083c364fca0b0022f40ccf0310c709</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-04 07:15:15</sys_updated_on>
+        <template><![CDATA[<div class="fd-actions-example">
+  <div class="row">
+    
+    <div class="col-xs-12 col-sm-3">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">Actions</h2>
+        </div>
+        <div class="panel-body">
+          <div class="btn-group btn-group-vertical" role="group">
+            <div class="btn-group" role="group"
+                 ng-repeat="action in c.actions">
+              <button ng-click="c.triggerAction(action.action_name)"
+                      class="btn btn-default"
+                      ng-class='{"btn-primary": action.primary}'>
+                {{action.name}}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-xs-12 col-sm-9">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h2 class="panel-title">Form</h2>
+        </div>
+        <div class="panel-body">
+          <widget id="pi-form-decorated" options="data.opts"></widget>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

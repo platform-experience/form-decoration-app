@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_embedded_help_role">
+    <sys_embedded_help_role action="INSERT_OR_UPDATE">
+        <order>100</order>
+        <role display_value="x_pisn_fd.manager" name="x_pisn_fd.manager">ef120e914f418700ab4450af0310c748</role>
+        <sys_class_name>sys_embedded_help_role</sys_class_name>
+        <sys_created_by>dylan.lindgren@snc</sys_created_by>
+        <sys_created_on>2017-09-06 01:58:51</sys_created_on>
+        <sys_id>7662ca914f418700ab4450af0310c7cd</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>ef120e914f418700ab4450af0310c748</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sys_embedded_help_role_7662ca914f418700ab4450af0310c7cd</sys_update_name>
+        <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+        <sys_updated_on>2017-09-06 01:58:51</sys_updated_on>
+    </sys_embedded_help_role>
+</record_update>

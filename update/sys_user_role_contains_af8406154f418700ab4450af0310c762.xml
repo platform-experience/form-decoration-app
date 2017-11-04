@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_user_role_contains">
+    <sys_user_role_contains action="INSERT_OR_UPDATE">
+        <contains display_value="x_pisn_fd.user" name="x_pisn_fd.user">e27442154f418700ab4450af0310c7a8</contains>
+        <role display_value="x_pisn_fd.developer" name="x_pisn_fd.developer">5bf1ca914f418700ab4450af0310c765</role>
+        <sys_class_name>sys_user_role_contains</sys_class_name>
+        <sys_created_by>dylan.lindgren@snc</sys_created_by>
+        <sys_created_on>2017-09-06 02:08:11</sys_created_on>
+        <sys_id>af8406154f418700ab4450af0310c762</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>x_pisn_fd.user.x_pisn_fd.developer</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sys_user_role_contains_af8406154f418700ab4450af0310c762</sys_update_name>
+        <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+        <sys_updated_on>2017-09-06 02:08:11</sys_updated_on>
+    </sys_user_role_contains>
+</record_update>

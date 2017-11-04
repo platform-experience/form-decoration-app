@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>pe-decorated-rp</id>
+        <sp_widget/>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2017-07-24 05:35:06</sys_created_on>
+        <sys_id>c8fd845f4fcc43003b3028201310c701</sys_id>
+        <sys_mod_count>64</sys_mod_count>
+        <sys_name>pe-decorated-rp</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sp_ng_template_c8fd845f4fcc43003b3028201310c701</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-08-31 02:09:05</sys_updated_on>
+        <template><![CDATA[<div>
+  <div>
+    <div ng-if="formModel._sections == null || formModel._sections.length == 0" ng-init="execItemScripts()"></div>
+    <div df-tabbed-cat-item
+         ng-repeat="section in formModel._sections"
+         ng-init="$first ? activate() : register()"
+         ng-show="active">
+      <h3>{{section.caption}}</h3>
+      <div ng-init="containers = [section]">
+        <div ng-include src="'df-variable-layout'"></div>
+      </div>
+      <div class="drp-actions">
+        <button ng-if="!$first" type="button" class="btn btn-default" ng-click="previous()">Previous</button>
+        <button ng-if="!$last" type="button" class="btn btn-primary" ng-click="next()">Next</button>
+        <button ng-if="$last" type="button" class="btn btn-primary" ng-click="submit()">Submit</button>
+      </div>
+    </div>
+  </div>
+  <script id="df-variable-layout" type="text/ng-template">
+    <fieldset ng-repeat="container in containers" ng-show="isContainerVisible(container)" ng-init="$last ? execItemScripts() : null">
+        <div class="row">
+            <div ng-repeat="column in container.columns" class="col-md-{{12 / container.columns.length }}">
+                <div ng-switch="f.type" ng-repeat="f in column.fields" id="{{getVarID(f)}}" ng-class="{'form-inline': isInlineForm === true }">
+                    <div ng-switch-when="label" ng-if="formModel._fields[f.name]" ng-show="formModel._fields[f.name].visible">
+                        <label ng-bind-html="::f.label"></label><span ng-if="::formModel._fields[f.name].instructions" ng-bind-html="::formModel._fields[f.name].instructions"></span>
+                        <p ng-if="::formModel._fields[f.name].help_text" title="{{::formModel._fields[f.name].help_tag}}" class="help-block" ng-bind-html="::formModel._fields[f.name].help_text"></p>
+                        <hr class="sp_label_hr"></hr>
+                    </div>
+                    <div ng-switch-when="field" ng-if="formModel._fields[f.name]" ng-show="formModel._fields[f.name].visible">
+                    	<sp-form-field ng-if="!formModel._decorators[f.name]" form-model="formModel" field="formModel._fields[f.name]" glide-form="getGlideForm()"></sp-form-field>
+                   		<fd-form-field ng-if="formModel._decorators[f.name]" form-model="formModel" field="formModel._fields[f.name]" glide-form="getGlideForm()"></fd-form-field>
+    								</div>
+                    <div ng-switch-when="container" ng-init="containers = [f]">
+                      <div ng-include src="'df-variable-layout'"></div>
+                    </div>
+                    <div ng-switch-when="checkbox_container" ng-init="containers = f.containers"">
+                      <div ng-include src="'df-variable-layout'"></div>
+                    </div>
+                    <sp-widget ng-switch-when="formatter" ng-if="formModel._formatters[f.id].widgetInstance" widget="formModel._formatters[f.id].widgetInstance" page="{g_form: getGlideForm()}"></sp-widget>
+                    <hr ng-switch-when="break"></hr>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+	</script>
+</div>
+
+]]></template>
+    </sp_ng_template>
+</record_update>

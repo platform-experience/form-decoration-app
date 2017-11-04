@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_ng_template">
+    <sp_ng_template action="INSERT_OR_UPDATE">
+        <id>pi-fd-layout</id>
+        <sp_widget display_value="Form (Decorated)">be775ff24f8443003b3028201310c739</sp_widget>
+        <sys_class_name>sp_ng_template</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-09-05 23:39:12</sys_created_on>
+        <sys_id>7d626d954fcd4700ab4450af0310c75e</sys_id>
+        <sys_mod_count>28</sys_mod_count>
+        <sys_name>pi-fd-layout</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sp_ng_template_7d626d954fcd4700ab4450af0310c75e</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-04 07:10:17</sys_updated_on>
+        <template><![CDATA[<fieldset ng-repeat="container in containers"
+          ng-show="paintForm(container)"
+          ng-init="$last ? execItemScripts() : null">
+  <legend class="h4"
+          ng-if="::(container.caption || container.captionDisplay) && options.show_headings">
+    {{container.captionDisplay || container.caption}}
+  </legend>
+  <div class="row">
+    <div ng-repeat="column in container.columns"
+         class="col-md-{{::12 / container.columns.length }}">
+      <div ng-switch="::f.type"
+           ng-repeat="f in ::column.fields"
+           id="{{::getVarID(f)}}"
+           ng-class="::{'form-inline': isInlineForm === true }">
+        <div ng-switch-when="label"
+             ng-if="formModel._fields[f.name]"
+             ng-show="formModel._fields[f.name].isVisible()">
+          <label ng-bind-html="::f.label"></label>
+          <span ng-if="formModel._fields[f.name].instructions" ng-bind-html="formModel._fields[f.name].instructions"></span>
+          <p ng-if="::formModel._fields[f.name].help_text" title="{{::formModel._fields[f.name].help_tag}}" class="help-block" ng-bind-html="::formModel._fields[f.name].help_text"></p>
+          <hr class="sp_label_hr" />
+        </div>
+        <div ng-switch-when="field"
+             ng-if="formModel._fields[f.name]"
+             ng-show="formModel._fields[f.name].isVisible()">
+          <sp-form-field ng-if="!formModel._fields[f.name].directive && !formModel._field_types[formModel._fields[f.name].type]"
+                         form-model="formModel"
+                         field="formModel._fields[f.name]"
+                         glide-form="getGlideForm()"></sp-form-field>
+          <fd-field ng-if="formModel._fields[f.name].directive || formModel._field_types[formModel._fields[f.name].type]"
+                         form-model="formModel"
+                         field="formModel._fields[f.name]"
+                         glide-form="getGlideForm()"></fd-field>
+        </div>
+        <div ng-switch-when="container"
+             ng-init="containers = [f]">
+          <div ng-include src="'pi-fd-layout'"></div>
+        </div>
+        <div ng-switch-when="checkbox_container"
+             ng-init="containers = f.containers">
+          <div ng-include src="'pi-fd-layout'"></div>
+        </div>
+        <sp-widget ng-switch-when="formatter"
+                   ng-if="formModel._formatters[f.id].widgetInstance"
+                   widget="formModel._formatters[f.id].widgetInstance"
+                   page="{g_form: getGlideForm()}"></sp-widget>
+        <hr ng-switch-when="break" />
+      </div>
+    </div>
+  </div>
+</fieldset>]]></template>
+    </sp_ng_template>
+</record_update>

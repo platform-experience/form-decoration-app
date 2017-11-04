@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update>
+    <sys_documentation element="controller" label="Controller function" language="en" table="x_pisn_fd_directive">
+        <sys_documentation action="INSERT_OR_UPDATE">
+            <element>controller</element>
+            <help/>
+            <hint/>
+            <label>Controller function</label>
+            <language>en</language>
+            <name>x_pisn_fd_directive</name>
+            <plural>Controller functions</plural>
+            <sys_class_name>sys_documentation</sys_class_name>
+            <sys_created_by>dylan.lindgren@snc</sys_created_by>
+            <sys_created_on>2017-09-05 07:07:42</sys_created_on>
+            <sys_id>a18f3d894f09470022f40ccf0310c738</sys_id>
+            <sys_mod_count>1</sys_mod_count>
+            <sys_name>Controller function</sys_name>
+            <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+            <sys_update_name>sys_documentation_x_pisn_fd_directive_controller_en</sys_update_name>
+            <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
+            <sys_updated_on>2017-09-05 07:07:59</sys_updated_on>
+            <url/>
+            <url_target/>
+        </sys_documentation>
+    </sys_documentation>
+</record_update>

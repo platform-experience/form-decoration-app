@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category/>
+        <client_script><![CDATA[function formDecoratedCtrl(fdManager, $scope, $location) {
+  var c = this;
+	
+	var form_id;
+	
+	// When g_form becomes available, report to fdForm and get the actions
+	$scope.$on('spModel.gForm.initialized', function(e, gFormInstance) {
+		if (gFormInstance.getTableName() == $scope.data.form.table) {
+			form_id = fdManager.add(gFormInstance, c.data.form);
+			c.actions = fdManager.getActions(form_id);
+			$scope.$emit('fd.newForm', {id: form_id});
+		}
+	});
+	
+	// Trigger an action
+	c.triggerAction = function(action) {
+		fdManager.triggerAction(form_id, action.action_name || action.sys_id);
+	};
+	
+	// Once the action is complete, reload the record
+	$scope.$on("spModel.uiActionComplete", function(evt, response) {
+		$scope.data.sys_id = (response.isInsert) ? response.sys_id : $scope.data.sys_id;
+		$scope.server.update().then(function () {
+			$rootScope.$broadcast('sp.form.record.updated', $scope.data.form._fields);
+			if (response.isInsert) {
+				var search = $location.search();
+				search.sys_id = response.sys_id;
+				search.spa = 1;
+				$location.search(search).replace();
+			}
+		});
+	});
+
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css>// Margin between form fields
+$fd-ff-margin: 0 !default;
+
+// UI Action container styles
+$fd-ui-actions-margin: 30px 0px; !default;
+$fd-ui-actions-text-align: center !default;
+
+// Margin between UI Actions
+$fd-uia-margin: 10px !default;
+
+// UI Action styles
+$fd-uia-border-radius: 8px !default;
+$fd-uia-border: 3px solid #C4D0D6 !default;
+$fd-uia-background: #fff !default;
+$fd-uia-padding: 5px 20px !default;
+$fd-uia-color: #000 !default;
+$fd-uia-min-height: 40px !default;
+$fd-uia-min-width: 40px !default;
+$fd-uia-font-size: 18px !default;
+
+// UI Action hover styles
+$fd-uia-background-hover: #F9FDFF; !default;
+$fd-uia-border-hover: 3px solid #C4D0D6 !default;
+$fd-uia-color-hover: #000 !default;
+
+// Primary UI Action styles
+$fd-uia-primary-background: #da1a40 !default;
+$fd-uia-primary-border: 3px solid #da1a40 !default;
+$fd-uia-primary-color: #fff !default;
+
+// Primary UI Action hover styles
+$fd-uia-primary-background-hover: #fd3056 !default;
+$fd-uia-primary-border-hover: 3px solid #da1a40 !default;
+$fd-uia-primary-color-hover: #fff !default;
+
+.pi-form-decorated {
+  
+  fd-field {
+    margin: $fd-ff-margin;
+    position: relative;
+    display: block;
+  }
+  
+  .fd-ui-actions {
+    text-align: $fd-ui-actions-text-align;
+    margin: $fd-ui-actions-margin;
+  }
+  
+  .fd-ui-action {
+    display: inline-block;
+    margin: $fd-uia-margin;
+    color: $fd-uia-color;
+    font-size: $fd-uia-font-size;
+  }
+  
+  .fd-ui-action button {
+    cursor: pointer;
+    border: $fd-uia-border;
+    border-radius: $fd-uia-border-radius;
+    background: $fd-uia-background;
+    padding: $fd-uia-padding;
+    min-height: $fd-uia-min-height;
+    min-width: $fd-uia-min-width;
+  }
+  
+  .fd-ui-action button:hover {
+    background-color: $fd-uia-background-hover;
+  }
+  
+  .fd-uia-primary button {
+    background: $fd-uia-primary-background;
+    border: $fd-uia-primary-border;
+    color: $fd-uia-primary-color;
+  }
+  
+  .fd-uia-primary button:hover {
+    background: $fd-uia-primary-background-hover;
+    border: $fd-uia-primary-border-hover;
+    color: $fd-uia-primary-color-hover;
+  }
+}</css>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>pi-form-decorated</id>
+        <internal>false</internal>
+        <link/>
+        <name>Form (Decorated)</name>
+        <option_schema>[{"displayValue":"Table","hint":"Table (leave blank to use URL parameter 'table')","name":"table","label":"Table","type":"reference","value":"sys_db_object","ed":{"reference":"sys_db_object"}},{"hint":"The Sys ID of the record in the table","name":"sys_id","default_value":"","label":"Sys ID","type":"string"},{"hint":"The view to use","name":"view","default_value":"","label":"View","type":"string"},{"hint":"Whether to only show the primary UI action","name":"primary_only","default_value":"","label":"Show only primary UI action","type":"boolean"},{"name":"show_headings","default_value":"","label":"Show section headings","type":"boolean"},{"hint":"Whether to show UI Actions","name":"show_actions","default_value":"true","label":"Show UI actions","type":"boolean"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function($sp, input, data, options, gs) {
+	
+	// Translations
+	data.i18n = {
+		no_table_supplied: gs.getMessage("There was no table name supplied for this form"),
+		table_no_exist: gs.getMessage("That table does not exist"),
+		record_not_found: gs.getMessage("Record not found"),
+		table_unsupported: gs.getMessage("Form view not supported for requested table")
+	};
+	
+	// input will be supplied if we're reloading the form after a UI action processing
+	if (input) {
+		
+		// Get config from the input
+		data.table = input.table;
+		data.sys_id = input.sys_id;
+		data.view = input.view;
+		data.show_headings = input.show_headings;
+		data.primary_only = input.primary_only;
+		data.show_actions = input.show_actions;
+		
+	} else {
+		
+		// Get config from options/URL params
+		data.table = options.table || $sp.getParameter('table') || false;
+		data.sys_id = options.sys_id || $sp.getParameter('sys_id') || '-1';
+		data.view = options.view || $sp.getParameter('view') || 'service_portal';
+		data.show_headings = options.show_headings || true;
+		data.primary_only = options.primary_only || false;
+		data.show_actions = options.show_actions;
+		
+	}
+	
+	// Check for errors before going further
+	data.errors = [];
+	
+	function addError(message) {
+		data.errors.push(message);
+		data.hasError = true;
+	}
+	
+	if (!data.table) {
+		addError(data.i18n.no_table_supplied);
+		return;
+	}
+	
+	if (data.table === 'sys_attachment') {
+		addError(data.i18n.table_unsupported);
+		return;
+	}
+	
+	var gr = new GlideRecord(data.table);
+	
+	if (!gr.isValid()) {
+		addError(data.i18n.table_no_exist);
+		return;
+	}
+	
+	if ((data.sys_id !== '-1') && (!gr.get(data.sys_id))) {
+		addError(data.i18n.record_not_found);
+		return;
+	}
+	
+	// No errors, let's proceed!
+	
+	// Get some details about the current record/table
+	data.can_write = gr.canWrite();
+	
+	// Get the form model, with the additional properties supplied by the FormDecoratorAPI
+	var $fd = new fdAPI($sp);
+	data.form = $fd.getDecoratedForm(data.table, data.sys_id, null, data.view, data.primary_only);
+	
+})($sp, input, data, options, gs);]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2017-07-23 06:58:35</sys_created_on>
+        <sys_id>be775ff24f8443003b3028201310c739</sys_id>
+        <sys_mod_count>269</sys_mod_count>
+        <sys_name>Form (Decorated)</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sp_widget_be775ff24f8443003b3028201310c739</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-04 06:18:37</sys_updated_on>
+        <template><![CDATA[<div class="pi-form-decorated">
+  
+  <!-- If there are NO errors -->
+  <div ng-if="::!c.data.errors.length">
+    
+    <!-- Show the form -->
+    <sp-model form-model="c.data.form"
+              template-url="pi-form-decorated"
+              mandatory="true"></sp-model>
+    
+    <!-- Show the UI Actions -->
+    <div class="fd-ui-actions" ng-if="::c.data.show_actions">
+      <div class="fd-ui-action"
+           ng-repeat="action in c.actions"
+           ng-class="{'fd-uia-primary': action.primary}">
+        <button ng-click="c.triggerAction(action)">{{::action.name}}</button>
+      </div>
+    </div>
+    
+  </div>
+  
+  <!-- If there ARE errors -->
+  <div ng-if="::c.data.errors.length">
+    <div class="panel-body wrapper-lg text-center">
+      <div ng-repeat="error in c.data.errors">{{::error}}</div>
+    </div>
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>

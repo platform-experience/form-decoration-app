@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload.demo</directory>
+        <documentkey>bfa9504b4f424b0022f40ccf0310c7e2</documentkey>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;record_update table="x_pisn_fd_directive"&gt;
+    &lt;x_pisn_fd_directive action="INSERT_OR_UPDATE"&gt;
+        &lt;controller&gt;&lt;![CDATA[function fdExampleEmailFieldCtrl ($scope, $timeout, $element) {
+	
+	$scope.focus = function () {
+		$scope.hasFocus = true;
+		$scope.$emit("sp.spFormField.focus", $element, $scope.inputField);
+	};
+	
+	$scope.blur = function () {
+		$scope.hasFocus = false;
+		$scope.fieldValue($scope.field.stagedValue);
+		$scope.$emit("sp.spFormField.blur", $element, $scope.inputField);
+	};
+	
+	$timeout(function () {
+		$scope.$emit("sp.spFormField.rendered", $element, $scope.inputField);
+	});
+
+}]]&gt;&lt;/controller&gt;
+        &lt;css&gt;.fd-ex-email {&amp;#13;
+  margin-bottom: 15px;&amp;#13;
+  position: relative;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-email input {&amp;#13;
+  box-sizing: border-box;&amp;#13;
+  border: 4px solid #C4D0D6;&amp;#13;
+  border-radius: 4px;&amp;#13;
+  background-color: #F9FDFF;&amp;#13;
+  padding: 5px 50px 5px 15px;&amp;#13;
+  width: 100%;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-icon {&amp;#13;
+  position: absolute;&amp;#13;
+  font-size: 25px;&amp;#13;
+  right: 10px;&amp;#13;
+  top: 26px;&amp;#13;
+  opacity: 0.5;&amp;#13;
+  color: MEDIUMVIOLETRED;&amp;#13;
+}&lt;/css&gt;
+        &lt;css_scoped&gt;.df_fdExampleEmailField .fd-ex-email {&amp;#13;
+  margin-bottom: 15px;&amp;#13;
+  position: relative;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleEmailField .fd-ex-email input {&amp;#13;
+  box-sizing: border-box;&amp;#13;
+  border: 4px solid #C4D0D6;&amp;#13;
+  border-radius: 4px;&amp;#13;
+  background-color: #F9FDFF;&amp;#13;
+  padding: 5px 50px 5px 15px;&amp;#13;
+  width: 100%;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleEmailField .fd-ex-icon {&amp;#13;
+  position: absolute;&amp;#13;
+  font-size: 25px;&amp;#13;
+  right: 10px;&amp;#13;
+  top: 26px;&amp;#13;
+  opacity: 0.5;&amp;#13;
+  color: MEDIUMVIOLETRED;&amp;#13;
+}&lt;/css_scoped&gt;
+        &lt;description/&gt;
+        &lt;link&gt;&lt;![CDATA[function fdExampleEmailFieldLink (scope, elem, attrs, ctrl) {
+
+}]]&gt;&lt;/link&gt;
+        &lt;name&gt;fdExampleEmailField&lt;/name&gt;
+        &lt;screenshot/&gt;
+        &lt;snake_case&gt;fd_example_email_field&lt;/snake_case&gt;
+        &lt;spinal_case&gt;fd-example-email-field&lt;/spinal_case&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2017-10-30 21:53:46&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;bfa9504b4f424b0022f40ccf0310c7e2&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;16&lt;/sys_mod_count&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2017-10-31 05:38:00&lt;/sys_updated_on&gt;
+        &lt;template&gt;&lt;![CDATA[&lt;div class="fd-ex-email"
+     ng-class="{'fd-ex-mandatory': field.mandatory}"
+     ng-show="field.visible"&gt;
+  &lt;label class="fd-ex-label"
+         for="{{::field.name}}"&gt;{{::field.label}}&lt;/label&gt;
+  &lt;input type="text"
+         name="{{::field.name}}"
+         ng-model="field.stagedValue"
+         ng-focus="focus()"
+         ng-blur="blur()" /&gt;
+  &lt;div class="fd-ex-icon"&gt;
+    &lt;i class="fa fa-envelope-o" aria-hidden="true"&gt;&lt;/i&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;
+    &lt;/x_pisn_fd_directive&gt;
+&lt;/record_update&gt;
+</payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-11-01 10:55:54</sys_created_on>
+        <sys_id>8466942fdbc20b00daa1752dbf961938</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>fdExampleEmailField</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sys_metadata_link_8466942fdbc20b00daa1752dbf961938</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-01 10:55:54</sys_updated_on>
+        <tablename>x_pisn_fd_directive</tablename>
+    </sys_metadata_link>
+</record_update>

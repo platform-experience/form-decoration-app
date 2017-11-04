@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_pisn_fd.fdAPI</api_name>
+        <client_callable>false</client_callable>
+        <description/>
+        <name>fdAPI</name>
+        <script><![CDATA[var fdAPI = Class.create();
+fdAPI.prototype = {
+	
+    initialize: function($sp) {
+		this.$sp = $sp;
+    },
+	
+	getDecoratedForm: function (table, sys_id, encodedQuery, view, primary_only) {
+		
+		var portal = this.$sp.getPortalRecord();
+		
+		var form = this.$sp.getForm(table, sys_id, encodedQuery, view);
+		
+		form._directives = {};
+		form._field_types = {};
+		
+		var heirarchy = new GlideTableHierarchy(table).getHierarchy(); 
+		
+		var gr = new GlideRecord('x_pisn_fd_decorator');
+		gr.addQuery('applies_to', 'field')
+			.addCondition('field.name', 'IN', heirarchy);
+		gr.addNullQuery('portal')
+			.addOrCondition('portal', portal.getUniqueValue());
+		gr.query();
+		
+		var directive,
+			fieldName,
+			fieldType;
+		
+		while (gr.next()) {
+			directive = gr.directive.getRefRecord();
+			fieldName = gr.field.getRefRecord().element;
+
+			if (typeof form._fields[fieldName] !== 'undefined') {
+				form._fields[fieldName].directive = {
+					spinal_case: directive.getValue('spinal_case'),
+					name: directive.getValue('name')
+				};
+				
+				addDirective(directive);
+			}
+		}
+		
+		var fieldTypes = [];
+		
+		for (var key in form._fields) {
+			if (typeof form._fields[key].directive === 'undefined') {
+				if (fieldTypes.indexOf(form._fields[key].type) === -1) {
+					fieldTypes.push(form._fields[key].type);
+				}
+			}
+		}
+		
+		gr = new GlideRecord('x_pisn_fd_decorator');
+		gr.addQuery('applies_to', 'field_var_type');
+		gr.addQuery('field_type.name', 'IN', fieldTypes.join(','));
+		gr.addNullQuery('portal')
+			.addOrCondition('portal', portal.getUniqueValue());
+		gr.query();	
+		
+		while (gr.next()) {
+			directive = gr.directive.getRefRecord();
+			fieldType = gr.field_type.getRefRecord().name;
+			
+			form._field_types[fieldType] = {
+					spinal_case: directive.getValue('spinal_case'),
+					name: directive.getValue('name')
+				};
+			
+			addDirective(directive);
+		}
+		
+		function addDirective(directive) {
+			form._directives[directive.getValue('name')] = {
+				name: directive.getValue('name'),
+				link: directive.getValue('link'),
+				template: directive.getValue('template'),
+				controller: directive.getValue('controller'),
+				css: directive.getValue('css_scoped'),
+				id: directive.getUniqueValue()
+			};
+		}
+		
+		
+		
+		if (primary_only) {
+			form._ui_actions = form._ui_actions.filter(function(action) {
+				return action.primary;
+			});
+		}
+		
+		return form;
+	},
+
+    type: 'fdAPI'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2017-07-23 11:45:30</sys_created_on>
+        <sys_id>f787d4034f0843003b3028201310c78c</sys_id>
+        <sys_mod_count>94</sys_mod_count>
+        <sys_name>fdAPI</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sys_script_include_f787d4034f0843003b3028201310c78c</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-01 23:03:51</sys_updated_on>
+    </sys_script_include>
+</record_update>

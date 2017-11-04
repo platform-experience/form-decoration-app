@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Field Directive" max_length="40" name="x_pisn_fd_directive" type="collection">
+        <element default="function myFieldCtrl () {&#13;&#10;&#13;&#10;}" label="Controller function" max_length="8000" name="controller" type="script"/>
+        <element label="CSS" max_length="4000" name="css" type="css"/>
+        <element calculation="(function calculatedFieldValue(current) {&#13;&#10;&#9;&#13;&#10;&#9;var parsed = current.css.replace(/([^\r\n,{}]+)(,(?=[^}]*{)|\s*{)/g, function(m){&#13;&#10;&#9;&#9;return &quot;.fd_&quot; + current.name + ' ' + m;&#13;&#10;&#9;});&#13;&#10;&#13;&#10;&#9;// Add your code here&#13;&#10;&#9;return parsed;  // return the calculated value&#13;&#10;&#13;&#10;})(current);" label="CSS (scoped)" max_length="4000" name="css_scoped" type="css" virtual="true"/>
+        <element label="Description" max_length="1024" name="description" type="string"/>
+        <element default="function myFieldLink (scope, elem, attrs, ctrl) {&#13;&#10;&#13;&#10;}" label="Link function" max_length="8000" name="link" type="script"/>
+        <element display="true" label="Name (camel-case)" mandatory="true" max_length="40" name="name" type="string"/>
+        <element label="Screenshot" max_length="40" name="screenshot" type="user_image"/>
+        <element calculation="(function calculatedFieldValue(current) {&#10;&#9;&#10;&#9;var REGEXP = /[A-Z]/g;&#10;&#9;&#10;&#9;return current.name.replace(REGEXP, function(letter, pos) {&#10;&#9;&#9;return (pos ? '_' : '') + letter.toLowerCase();&#10;&#9;  });&#10;&#10;})(current);" label="Name (snake-case)" max_length="40" name="snake_case" read_only="true" type="string" virtual="true"/>
+        <element calculation="(function calculatedFieldValue(current) {&#10;&#10;&#9;var REGEXP = /[A-Z]/g;&#10;&#9;&#10;&#9;return current.name.replace(REGEXP, function(letter, pos) {&#10;&#9;&#9;return (pos ? '-' : '') + letter.toLowerCase();&#10;&#9;  });&#10;&#10;})(current);" label="Name (spinal-case)" max_length="40" name="spinal_case" read_only="true" type="string" virtual="true"/>
+        <element default="&lt;div&gt;&#13;&#10;&#9;&lt;!-- your field template --&gt;&#13;&#10;&lt;/div&gt;" label="template" max_length="4000" name="template" type="html_template"/>
+    </element>
+</database>

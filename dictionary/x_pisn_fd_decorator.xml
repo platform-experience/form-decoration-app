@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <element label="Field Decorator" max_length="40" name="x_pisn_fd_decorator" type="collection">
+        <element choice="3" default="field_var_type" label="Applies to" max_length="40" name="applies_to" type="choice">
+            <choice>
+                <element label="Field type" sequence="1" value="field_var_type"/>
+                <element label="Field" sequence="2" value="field"/>
+                <element label="Variable" sequence="3" value="variable"/>
+            </choice>
+        </element>
+        <element display="true" label="Directive" mandatory="true" max_length="32" name="directive" reference="x_pisn_fd_directive" type="reference"/>
+        <element label="Field" max_length="32" name="field" reference="sys_dictionary" reference_qual="internal_typeISNOTEMPTY^internal_type!=collection^EQ" reference_qual_condition="internal_typeISNOTEMPTY^internal_type!=collection^EQ" type="reference"/>
+        <element label="Field type" max_length="32" name="field_type" reference="sys_glide_object" type="reference"/>
+        <element label="Portal" max_length="32" name="portal" reference="sp_portal" type="reference"/>
+        <element label="Variable" max_length="32" name="variable" reference="item_option_new" type="reference"/>
+        <index name="index">
+            <element name="field"/>
+        </index>
+        <index name="index2">
+            <element name="variable"/>
+        </index>
+        <index name="index3">
+            <element name="portal"/>
+        </index>
+        <index name="index4">
+            <element name="field_type"/>
+        </index>
+        <index name="index5">
+            <element name="directive"/>
+        </index>
+    </element>
+</database>

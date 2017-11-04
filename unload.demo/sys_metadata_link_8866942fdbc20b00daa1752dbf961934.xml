@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sys_metadata_link">
+    <sys_metadata_link action="INSERT_OR_UPDATE">
+        <directory>unload.demo</directory>
+        <documentkey>9a178b834ff08300ab4450af0310c729</documentkey>
+        <payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;record_update table="x_pisn_fd_directive"&gt;
+    &lt;x_pisn_fd_directive action="INSERT_OR_UPDATE"&gt;
+        &lt;controller&gt;&lt;![CDATA[function fdExampleCheckboxFieldCtrl ($scope, $element) {
+	
+	$scope.setField = function () {
+		$scope.hasFocus = false;
+		$scope.fieldValue($scope.field.stagedValue);
+		$scope.$emit("sp.spFormField.blur", $element, $scope.inputField);
+	};
+
+}]]&gt;&lt;/controller&gt;
+        &lt;css&gt;.fd-ex-checkbox input {&amp;#13;
+	display: none;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-checkbox label {&amp;#13;
+  padding-left: 35px;&amp;#13;
+	position: relative;&amp;#13;
+  line-height: 30px;&amp;#13;
+  cursor: pointer;&amp;#13;
+&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-checkbox label span {&amp;#13;
+  display: inline-block;&amp;#13;
+  border: 3px solid #C4D0D6;&amp;#13;
+  border-radius: 8px;&amp;#13;
+  background-color: #F9FDFF;&amp;#13;
+  width: 28px;&amp;#13;
+  height: 28px;&amp;#13;
+  position: absolute;&amp;#13;
+  left: 0;&amp;#13;
+  top: 0;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.fd-ex-checkbox input:checked + label &amp;gt; span {&amp;#13;
+  background-color: #305497;&amp;#13;
+}&lt;/css&gt;
+        &lt;css_scoped&gt;.df_fdExampleCheckboxField .fd-ex-checkbox input {&amp;#13;
+	display: none;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleCheckboxField .fd-ex-checkbox label {&amp;#13;
+  padding-left: 35px;&amp;#13;
+	position: relative;&amp;#13;
+  line-height: 30px;&amp;#13;
+  cursor: pointer;&amp;#13;
+&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleCheckboxField .fd-ex-checkbox label span {&amp;#13;
+  display: inline-block;&amp;#13;
+  border: 3px solid #C4D0D6;&amp;#13;
+  border-radius: 8px;&amp;#13;
+  background-color: #F9FDFF;&amp;#13;
+  width: 28px;&amp;#13;
+  height: 28px;&amp;#13;
+  position: absolute;&amp;#13;
+  left: 0;&amp;#13;
+  top: 0;&amp;#13;
+}&amp;#13;
+&amp;#13;
+.df_fdExampleCheckboxField .fd-ex-checkbox input:checked + label &amp;gt; span {&amp;#13;
+  background-color: #305497;&amp;#13;
+}&lt;/css_scoped&gt;
+        &lt;description/&gt;
+        &lt;link&gt;&lt;![CDATA[function fdExampleCheckboxFieldLink (scope, elem, attrs, ctrl) {
+	
+}]]&gt;&lt;/link&gt;
+        &lt;name&gt;fdExampleCheckboxField&lt;/name&gt;
+        &lt;screenshot/&gt;
+        &lt;snake_case&gt;fd_example_checkbox_field&lt;/snake_case&gt;
+        &lt;spinal_case&gt;fd-example-checkbox-field&lt;/spinal_case&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2017-08-30 07:12:35&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;9a178b834ff08300ab4450af0310c729&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;15&lt;/sys_mod_count&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2017-10-31 01:25:00&lt;/sys_updated_on&gt;
+        &lt;template&gt;&lt;![CDATA[&lt;div class="fd-ex-checkbox"
+     ng-class="{'fd-ex-mandatory': field.mandatory}"
+     ng-show="field.visible"&gt;
+  &lt;div class="row"&gt;
+    &lt;div class="col-xs-12"&gt;
+      &lt;input type="checkbox"
+             ng-attr-id="{{::'fd_' + field.name}}"
+             ng-model="field.stagedValue"
+             ng-true-value="'true'"
+             ng-false-value="'false'"
+             name="{{::field.name}}"
+             ng-change="setField()"/&gt;
+      &lt;label ng-attr-for="{{::'fd_' + field.name}}"
+             class="fd-ex-label"&gt;&lt;span&gt;&lt;/span&gt;{{::field.label}}&lt;/label&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;]]&gt;&lt;/template&gt;
+    &lt;/x_pisn_fd_directive&gt;
+    &lt;sys_attachment action="INSERT_OR_UPDATE"&gt;
+        &lt;average_image_color&gt;#ffffff&lt;/average_image_color&gt;
+        &lt;chunk_size_bytes/&gt;
+        &lt;compressed&gt;true&lt;/compressed&gt;
+        &lt;content_type&gt;image/png&lt;/content_type&gt;
+        &lt;encryption_context/&gt;
+        &lt;file_name&gt;screenshot&lt;/file_name&gt;
+        &lt;image_height&gt;40&lt;/image_height&gt;
+        &lt;image_width&gt;178&lt;/image_width&gt;
+        &lt;size_bytes&gt;2570&lt;/size_bytes&gt;
+        &lt;size_compressed&gt;2482&lt;/size_compressed&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2017-08-30 07:18:37&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;e2780bc34ff08300ab4450af0310c791&lt;/sys_id&gt;
+        &lt;sys_mod_count&gt;2&lt;/sys_mod_count&gt;
+        &lt;sys_updated_by&gt;admin&lt;/sys_updated_by&gt;
+        &lt;sys_updated_on&gt;2017-08-30 07:18:37&lt;/sys_updated_on&gt;
+        &lt;table_name&gt;ZZ_YYx_pisn_fd_directive&lt;/table_name&gt;
+        &lt;table_sys_id&gt;9a178b834ff08300ab4450af0310c729&lt;/table_sys_id&gt;
+    &lt;/sys_attachment&gt;
+    &lt;sys_attachment_doc action="INSERT_OR_UPDATE"&gt;
+        &lt;data&gt;H4sIAAAAAAAAAA==&lt;/data&gt;
+        &lt;length&gt;16&lt;/length&gt;
+        &lt;position&gt;0&lt;/position&gt;
+        &lt;sys_attachment display_value="screenshot" sys_id="e2780bc34ff08300ab4450af0310c791"&gt;e2780bc34ff08300ab4450af0310c791&lt;/sys_attachment&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2017-08-30 07:18:37&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;26780bc34ff08300ab4450af0310c791&lt;/sys_id&gt;
+    &lt;/sys_attachment_doc&gt;
+    &lt;sys_attachment_doc action="INSERT_OR_UPDATE"&gt;
+        &lt;data&gt;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&lt;/data&gt;
+        &lt;length&gt;3296&lt;/length&gt;
+        &lt;position&gt;1&lt;/position&gt;
+        &lt;sys_attachment display_value="screenshot" sys_id="e2780bc34ff08300ab4450af0310c791"&gt;e2780bc34ff08300ab4450af0310c791&lt;/sys_attachment&gt;
+        &lt;sys_created_by&gt;admin&lt;/sys_created_by&gt;
+        &lt;sys_created_on&gt;2017-08-30 07:18:37&lt;/sys_created_on&gt;
+        &lt;sys_id&gt;a6780bc34ff08300ab4450af0310c791&lt;/sys_id&gt;
+    &lt;/sys_attachment_doc&gt;
+&lt;/record_update&gt;
+</payload>
+        <sys_class_name>sys_metadata_link</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2017-11-01 10:55:54</sys_created_on>
+        <sys_id>8866942fdbc20b00daa1752dbf961934</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>fdExampleCheckboxField</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sys_metadata_link_8866942fdbc20b00daa1752dbf961934</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2017-11-01 10:55:54</sys_updated_on>
+        <tablename>x_pisn_fd_directive</tablename>
+    </sys_metadata_link>
+</record_update>
