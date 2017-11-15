@@ -7,14 +7,14 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-09-05 23:39:12</sys_created_on>
         <sys_id>7d626d954fcd4700ab4450af0310c75e</sys_id>
-        <sys_mod_count>29</sys_mod_count>
+        <sys_mod_count>30</sys_mod_count>
         <sys_name>pi-fd-layout</sys_name>
         <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
         <sys_policy/>
         <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
         <sys_update_name>sp_ng_template_7d626d954fcd4700ab4450af0310c75e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-11-15 22:51:45</sys_updated_on>
+        <sys_updated_on>2017-11-15 22:55:49</sys_updated_on>
         <template><![CDATA[<fieldset ng-repeat="container in containers"
           ng-show="paintForm(container) || isContainerVisible(container)"
           ng-init="$last ? execItemScripts() : null">
@@ -31,7 +31,7 @@
            ng-class="::{'form-inline': isInlineForm === true }">
         <div ng-switch-when="label"
              ng-if="formModel._fields[f.name]"
-             ng-show="formModel._fields[f.name].isVisible()">
+             ng-show="formModel._fields[f.name].isVisible() || formModel._fields[f.name].visible">
           <label ng-bind-html="::f.label"></label>
           <span ng-if="formModel._fields[f.name].instructions" ng-bind-html="formModel._fields[f.name].instructions"></span>
           <p ng-if="::formModel._fields[f.name].help_text" title="{{::formModel._fields[f.name].help_tag}}" class="help-block" ng-bind-html="::formModel._fields[f.name].help_text"></p>
@@ -39,7 +39,7 @@
         </div>
         <div ng-switch-when="field"
              ng-if="formModel._fields[f.name]"
-             ng-show="formModel._fields[f.name].isVisible()">
+             ng-show="formModel._fields[f.name].isVisible() || formModel._fields[f.name].visible">
           <sp-form-field ng-if="!formModel._fields[f.name].directive && !formModel._field_types[formModel._fields[f.name].type]"
                          form-model="formModel"
                          field="formModel._fields[f.name]"
