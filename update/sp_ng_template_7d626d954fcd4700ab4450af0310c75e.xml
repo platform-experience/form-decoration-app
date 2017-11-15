@@ -7,16 +7,16 @@
         <sys_created_by>admin</sys_created_by>
         <sys_created_on>2017-09-05 23:39:12</sys_created_on>
         <sys_id>7d626d954fcd4700ab4450af0310c75e</sys_id>
-        <sys_mod_count>28</sys_mod_count>
+        <sys_mod_count>29</sys_mod_count>
         <sys_name>pi-fd-layout</sys_name>
         <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
         <sys_policy/>
         <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
         <sys_update_name>sp_ng_template_7d626d954fcd4700ab4450af0310c75e</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-11-04 07:10:17</sys_updated_on>
+        <sys_updated_on>2017-11-15 22:51:45</sys_updated_on>
         <template><![CDATA[<fieldset ng-repeat="container in containers"
-          ng-show="paintForm(container)"
+          ng-show="paintForm(container) || isContainerVisible(container)"
           ng-init="$last ? execItemScripts() : null">
   <legend class="h4"
           ng-if="::(container.caption || container.captionDisplay) && options.show_headings">
