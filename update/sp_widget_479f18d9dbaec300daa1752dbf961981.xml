@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record_update table="sp_widget">
+    <sp_widget action="INSERT_OR_UPDATE">
+        <category>custom</category>
+        <client_script><![CDATA[function(spUtil, $scope, $http, $location) {
+  /* widget controller */
+  var c = this;
+	
+	console.log(c.data.rp);
+	
+	
+	c.submitRecordProducer = function() {
+		postCatalogFormRequest().success(function(response) {
+			var a = response.result ? response.result : response.answer;
+			var n = a.number;
+			$scope.$emit("$$uiNotification", a.$$uiNotification);
+			$scope.$emit("$sp.sc_cat_item.submitted", a);
+			if (n) {
+				console.log(n, a.table, a.sys_id, a.redirect_to, a.redirect_portal_url);
+				$location.search('id=bn_navigator&sys_id=' + a.sys_id);
+			}
+			$scope.submitting = false;
+		}).error(function(response) {
+			console.log(response);
+		});
+	}
+
+
+	function postCatalogFormRequest() {
+		$scope.submitted = true;
+		$scope.submitting = true;
+		var requestUrl;
+		var reqData = {};
+		if (c.data.sc_cat_item.sys_class_name === "sc_cat_item_producer") {
+			requestUrl = '/api/sn_sc/v1/servicecatalog/items/' + c.data.sc_cat_item.sys_id + '/submit_producer';
+			for(var obj in c.data.sc_cat_item._fields)
+				reqData[c.data.sc_cat_item._fields[obj].variable_name] = c.data.sc_cat_item._fields[obj].value;
+			reqData = {'variables' : reqData, 'get_portal_messages': 'true'};
+		}
+		else {
+			requestUrl = spUtil.getURL('sc_cat_item');
+			reqData = c.data.sc_cat_item;
+		}
+		return $http.post(requestUrl, reqData);
+	}
+}]]></client_script>
+        <controller_as>c</controller_as>
+        <css/>
+        <data_table>sp_instance</data_table>
+        <demo_data/>
+        <description/>
+        <docs/>
+        <field_list/>
+        <has_preview>false</has_preview>
+        <id>pi-rp-decorated</id>
+        <internal>false</internal>
+        <link/>
+        <name>Record Producer (Decorated)</name>
+        <option_schema>[{"hint":"The Sys ID of the record producer","name":"sys_id","section":"Data","label":"Sys ID","type":"string"},{"name":"show_headings","section":"Presentation","label":"Show section headings","type":"boolean"}]</option_schema>
+        <public>false</public>
+        <roles/>
+        <script><![CDATA[(function($sp) {
+	
+	// Translations
+	data.i18n = {};
+		
+	// Get config from options/URL params
+	data.sys_id = options.sys_id || $sp.getParameter('sys_id') || false;
+	data.show_headings = options.show_headings || true;
+	
+	// Check for errors before going further
+	data.errors = [];
+	
+	function addError(message) {
+		data.errors.push(message);
+		data.hasError = true;
+	}
+	
+	var gr = new GlideRecord('sc_cat_item_producer');
+	
+	if (!gr.get(data.sys_id)) {
+		addError(gs.getMessage("No record producer found with that ID"));
+		return;
+	}
+	
+	// Get the form model, with the additional properties supplied by the FormDecoratorAPI
+	var $fd = new fdAPI($sp);
+	data.rp = $fd.getDecoratedRP(data.sys_id);
+
+})($sp);]]></script>
+        <servicenow>false</servicenow>
+        <sys_class_name>sp_widget</sys_class_name>
+        <sys_created_by>dylan.lindgren</sys_created_by>
+        <sys_created_on>2017-11-19 08:21:20</sys_created_on>
+        <sys_id>479f18d9dbaec300daa1752dbf961981</sys_id>
+        <sys_mod_count>18</sys_mod_count>
+        <sys_name>Record Producer (Decorated)</sys_name>
+        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_update_name>sp_widget_479f18d9dbaec300daa1752dbf961981</sys_update_name>
+        <sys_updated_by>dylan.lindgren</sys_updated_by>
+        <sys_updated_on>2017-11-19 10:33:19</sys_updated_on>
+        <template><![CDATA[<div class="pi-rp-decorated">
+  <!-- If there are NO errors -->
+  <div ng-if="::!c.data.errors.length">
+    
+    <!-- Show the form -->
+    <sp-model form-model="c.data.rp"
+              template-url="pi-rp-decorated"
+              mandatory="true"></sp-model>
+    
+  </div>
+</div>]]></template>
+    </sp_widget>
+</record_update>
