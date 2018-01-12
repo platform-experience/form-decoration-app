@@ -1,96 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <record_update>
     <sys_ui_list parent="" relationship="" sys_domain="global" table="wf_context" version="2" view="">
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>started</element>
-            <list_id display_value="wf_context" element="NULL" name="wf_context" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">db00d45bc0a801647c766b5f15babce5</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>0</position>
-            <sum>false</sum>
-            <sys_created_by>glide.maint</sys_created_by>
-            <sys_created_on>2008-06-30 19:44:02</sys_created_on>
-            <sys_id>db00d45ec0a801646661b00d085dbd71</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>glide.maint</sys_updated_by>
-            <sys_updated_on>2008-06-30 19:44:02</sys_updated_on>
-        </sys_ui_list_element>
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>workflow_version</element>
-            <list_id display_value="wf_context" element="NULL" name="wf_context" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">db00d45bc0a801647c766b5f15babce5</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>1</position>
-            <sum>false</sum>
-            <sys_created_by>glide.maint</sys_created_by>
-            <sys_created_on>2008-06-30 19:44:02</sys_created_on>
-            <sys_id>db00d461c0a801642f7d5b4ecd3ec55b</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>glide.maint</sys_updated_by>
-            <sys_updated_on>2008-06-30 19:44:02</sys_updated_on>
-        </sys_ui_list_element>
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>id</element>
-            <list_id display_value="wf_context" element="NULL" name="wf_context" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">db00d45bc0a801647c766b5f15babce5</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>2</position>
-            <sum>false</sum>
-            <sys_created_by>glide.maint</sys_created_by>
-            <sys_created_on>2008-06-30 19:44:02</sys_created_on>
-            <sys_id>db00d463c0a8016405282a301e62a0d7</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>glide.maint</sys_updated_by>
-            <sys_updated_on>2008-06-30 19:44:02</sys_updated_on>
-        </sys_ui_list_element>
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>state</element>
-            <list_id display_value="wf_context" element="NULL" name="wf_context" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">db00d45bc0a801647c766b5f15babce5</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>3</position>
-            <sum>false</sum>
-            <sys_created_by>glide.maint</sys_created_by>
-            <sys_created_on>2008-06-30 19:44:02</sys_created_on>
-            <sys_id>db00d466c0a801642a7d138e27a6782b</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>glide.maint</sys_updated_by>
-            <sys_updated_on>2008-06-30 19:44:02</sys_updated_on>
-        </sys_ui_list_element>
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>due</element>
-            <list_id display_value="wf_context" element="NULL" name="wf_context" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">db00d45bc0a801647c766b5f15babce5</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>4</position>
-            <sum>false</sum>
-            <sys_created_by>glide.maint</sys_created_by>
-            <sys_created_on>2008-06-30 19:44:02</sys_created_on>
-            <sys_id>db00d468c0a80164094f634b0149fc22</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>glide.maint</sys_updated_by>
-            <sys_updated_on>2008-06-30 19:44:02</sys_updated_on>
-        </sys_ui_list_element>
-        <sys_ui_list_element action="INSERT_OR_UPDATE">
-            <average_value>false</average_value>
-            <element>ended</element>
-            <list_id display_value="wf_context" element="NULL" name="wf_context" parent="NULL" relationship="NULL" sys_domain="global" view="Default view">db00d45bc0a801647c766b5f15babce5</list_id>
-            <max_value>false</max_value>
-            <min_value>false</min_value>
-            <position>5</position>
-            <sum>false</sum>
-            <sys_created_by>glide.maint</sys_created_by>
-            <sys_created_on>2008-06-30 19:44:02</sys_created_on>
-            <sys_id>db00d46bc0a801646c9bd392fe82214c</sys_id>
-            <sys_mod_count>0</sys_mod_count>
-            <sys_updated_by>glide.maint</sys_updated_by>
-            <sys_updated_on>2008-06-30 19:44:02</sys_updated_on>
-        </sys_ui_list_element>
         <sys_ui_list action="INSERT_OR_UPDATE">
             <average_value>false</average_value>
             <element/>
@@ -104,14 +14,16 @@
             <sys_class_name>sys_ui_list</sys_class_name>
             <sys_created_by>admin</sys_created_by>
             <sys_created_on>2017-09-05 04:05:44</sys_created_on>
+            <sys_customer_update>false</sys_customer_update>
             <sys_domain>global</sys_domain>
             <sys_domain_path>/</sys_domain_path>
             <sys_id>3bd551454fc5470022f40ccf0310c7df</sys_id>
             <sys_mod_count>0</sys_mod_count>
             <sys_name>wf_context</sys_name>
-            <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+            <sys_package display_value="Form Decoration" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
             <sys_policy/>
-            <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+            <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+            <sys_scope display_value="Form Decoration">0e3afa364f4443003b3028201310c742</sys_scope>
             <sys_update_name>sys_ui_list_wf_context_null</sys_update_name>
             <sys_updated_by>admin</sys_updated_by>
             <sys_updated_on>2017-09-05 04:05:44</sys_updated_on>

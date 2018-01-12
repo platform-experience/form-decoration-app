@@ -20,18 +20,22 @@
         <query/>
         <report/>
         <roles>x_pisn_fd.user</roles>
+        <survey/>
+        <survey_overwrite>false</survey_overwrite>
         <sys_class_name>sys_app_module</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2017-07-23 05:05:06</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>087dfef64f4443003b3028201310c720</sys_id>
         <sys_mod_count>3</sys_mod_count>
         <sys_name>Form Decoration</sys_name>
         <sys_overrides/>
-        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_package display_value="Form Decoration" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Form Decoration">0e3afa364f4443003b3028201310c742</sys_scope>
         <sys_update_name>sys_app_module_087dfef64f4443003b3028201310c720</sys_update_name>
         <sys_updated_by>dylan.lindgren@snc</sys_updated_by>
         <sys_updated_on>2017-09-06 02:10:50</sys_updated_on>

@@ -42,7 +42,7 @@
         
 
         /**
-         * Get the UI Actions for a particular form
+         * Trigger a UI Action on a particular form
          * 
          * @param {String} id  the unique identifier of the form
          * @param {String} action  the action name, or sys_id of the UI Action
@@ -102,9 +102,71 @@
         };
     })
 
+    .service('fdRefHelper', function ($http, $q) {
+        'use strict';
 
+        class ReferenceField {
 
+            constructor(field, formModel) {
+                this.f = field;
+                this.fm = formModel;
 
+                this.count = 20;
+                this.offset = 0;
+                this.search = '';
+            }
+
+            setSearch (search) {
+                this.search = search;
+            }
+
+            getNext () {
+
+                var values = {};
+
+                for(var field in this.fm._fields) {
+                    values[field] = this.fm._fields[field].value;
+                }
+
+                var self = this;
+
+                return $q(function (resolve, reject) {
+
+                    var p = self.f.refTable + ";q:" + self.f.ed.searchField + self.f.ed.defaultOperator + self.search + "^" + self.f.ed.searchField + "ISNOTEMPTY^EQ;r:undefined";
+
+                    $http({
+                        method: 'POST',
+                        url: '/angular.do?sysparm_type=sp_ref_list_data',
+                        data: {
+                            "count": self.count,
+                            "dependent_field": self.f.ed.dependent_field,
+                            "dependent_table": self.f.ed.dependent_table,
+                            "dependent_value": self.f.ed.dependent_value,
+                            "p": p,
+                            "start": self.offset,
+                            "sysparm_record_values": values,
+                            "sysparm_target_field": self.f.name,
+                            "sysparm_target_table": self.fm.table,
+                            "table": self.f.refTable
+                        }
+                    }).then(function (result) {
+                        resolve(result.data);
+                        self.offset = self.offset + self.count;
+                    });
+
+                });
+            }
+
+        }
+
+        function getNew(field, formModel) {
+            return new ReferenceField(field, formModel);
+        }
+
+        return {
+            getNew: getNew
+        };
+    })
 
     .factory('fdFieldService', function (lazyLoader, $injector, $document) {
         'use strict';
@@ -292,15 +354,17 @@
         <sys_class_name>sys_ui_script</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2017-07-23 04:53:00</sys_created_on>
+        <sys_customer_update>false</sys_customer_update>
         <sys_id>037af2b64f4443003b3028201310c7f6</sys_id>
-        <sys_mod_count>179</sys_mod_count>
+        <sys_mod_count>192</sys_mod_count>
         <sys_name>x_pisn_fd.fdLib</sys_name>
-        <sys_package display_value="Form (Decorated)" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
+        <sys_package display_value="Form Decoration" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
         <sys_policy/>
-        <sys_scope display_value="Form (Decorated)">0e3afa364f4443003b3028201310c742</sys_scope>
+        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
+        <sys_scope display_value="Form Decoration">0e3afa364f4443003b3028201310c742</sys_scope>
         <sys_update_name>sys_ui_script_037af2b64f4443003b3028201310c7f6</sys_update_name>
-        <sys_updated_by>dylan.lindgren</sys_updated_by>
-        <sys_updated_on>2017-11-19 10:46:18</sys_updated_on>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2018-01-12 05:42:04</sys_updated_on>
         <use_scoped_format>false</use_scoped_format>
     </sys_ui_script>
 </record_update>
