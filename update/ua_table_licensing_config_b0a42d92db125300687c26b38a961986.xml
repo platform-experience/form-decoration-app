@@ -13,15 +13,13 @@
         <sys_class_name>ua_table_licensing_config</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2017-07-23 05:03:57</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
-        <sys_id>866ba5e6db230300f9b1de90cf96192b</sys_id>
+        <sys_id>b0a42d92db125300687c26b38a961986</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>x_pisn_fd_decorator</sys_name>
         <sys_package display_value="Form Decoration" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Form Decoration">0e3afa364f4443003b3028201310c742</sys_scope>
-        <sys_update_name>ua_table_licensing_config_866ba5e6db230300f9b1de90cf96192b</sys_update_name>
+        <sys_update_name>ua_table_licensing_config_b0a42d92db125300687c26b38a961986</sys_update_name>
         <sys_updated_by>dylan.lindgren</sys_updated_by>
         <sys_updated_on>2017-07-23 05:03:57</sys_updated_on>
     </ua_table_licensing_config>

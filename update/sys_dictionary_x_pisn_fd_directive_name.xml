@@ -54,17 +54,15 @@
         <sys_class_name>sys_dictionary</sys_class_name>
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2017-07-23 05:02:24</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
-        <sys_id>8e6ba5e6db230300f9b1de90cf961939</sys_id>
+        <sys_id>bca42d92db125300687c26b38a961993</sys_id>
         <sys_mod_count>0</sys_mod_count>
         <sys_name>Name (camel-case)</sys_name>
         <sys_package display_value="Form Decoration" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Form Decoration">0e3afa364f4443003b3028201310c742</sys_scope>
         <sys_update_name>sys_dictionary_x_pisn_fd_directive_name</sys_update_name>
         <sys_updated_by>system</sys_updated_by>
-        <sys_updated_on>2018-01-12 04:07:44</sys_updated_on>
+        <sys_updated_on>2018-05-28 01:52:20</sys_updated_on>
         <table_reference>false</table_reference>
         <text_index>false</text_index>
         <unique>false</unique>

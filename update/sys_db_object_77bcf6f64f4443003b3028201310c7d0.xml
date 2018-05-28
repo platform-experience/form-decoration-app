@@ -4,6 +4,7 @@
         <access>public</access>
         <actions_access>false</actions_access>
         <alter_access>false</alter_access>
+        <caller_access/>
         <client_scripts_access>false</client_scripts_access>
         <configuration_access>false</configuration_access>
         <create_access>false</create_access>
@@ -23,13 +24,11 @@
         <sys_class_path/>
         <sys_created_by>dylan.lindgren</sys_created_by>
         <sys_created_on>2017-07-23 05:02:24</sys_created_on>
-        <sys_customer_update>false</sys_customer_update>
         <sys_id>77bcf6f64f4443003b3028201310c7d0</sys_id>
         <sys_mod_count>1</sys_mod_count>
         <sys_name>Field Directive</sys_name>
         <sys_package display_value="Form Decoration" source="x_pisn_fd">0e3afa364f4443003b3028201310c742</sys_package>
         <sys_policy/>
-        <sys_replace_on_upgrade>false</sys_replace_on_upgrade>
         <sys_scope display_value="Form Decoration">0e3afa364f4443003b3028201310c742</sys_scope>
         <sys_update_name>sys_db_object_77bcf6f64f4443003b3028201310c7d0</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
